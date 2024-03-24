@@ -1,0 +1,20 @@
+<!-- signup components html file  -->
+<h1>Create new User</h1>
+<div>
+ <div>
+    Username: <input type="text" [(ngModel)]="user.username" />
+</div>
+<div>
+    Password: <input type="password" [(ngModel)]="user.password" />
+</div>
+<div>
+    Email: <input type="email" [(ngModel)]="user.email" />
+</div>
+<div>
+    fullname: <input type="text" [(ngModel)]="user.fullname" />
+</div>
+
+    <button (click)="registerUser()">Submit</button><br>
+</div>
+
+<a routerLink="/">Login</a>

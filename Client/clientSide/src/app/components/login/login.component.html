@@ -1,0 +1,13 @@
+<!-- login component HTML file -->
+<h1>Login</h1>
+
+<div>
+    Username: <input type="text" [(ngModel)]="username" />
+</div>
+<div>
+    Password: <input type="password" [(ngModel)]="password" />
+</div>
+
+<button (click)="loginUser()">Submit</button> <br>
+
+<a routerLink="/signup">Signup</a>

@@ -1,0 +1,20 @@
+<div *ngFor="let task of tasks">
+  <h4>{{ task.title }}</h4>
+  <p>{{ task.description }}</p>
+  <p>{{ task.priority }}</p>
+  <div>
+    <button (click)="deleteTask(task._id)">Delete Task</button>
+  </div>
+</div>
+
+<hr>
+<div>
+  <h4>Add new Task</h4>
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" [(ngModel)]="task.title"><br>
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" [(ngModel)]="task.description"><br>
+  <label for="priority">Priority (1 - 5):</label><br>
+  <input type="number" id="priority" [(ngModel)]="task.priority"><br>
+  <button (click)="addTask()">Add Task</button>
+</div>
