@@ -45,6 +45,7 @@ export class TaskComponent implements OnInit {
       this.taskService.addTask(this.task, token).subscribe(() => {
         this.task = new Task(); // Clear the task object after adding
         this.loadTasks(); // Reload tasks to reflect changes
+        alert("add new task")
       });
     }
   }
