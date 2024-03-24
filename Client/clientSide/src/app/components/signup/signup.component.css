@@ -1,0 +1,38 @@
+* {
+  background-color: pink;
+}
+.con {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 150px;
+  align-items: flex-start;
+}
+.con div::before {
+  content: attr(data-label);
+  font-weight: bold;
+}
+
+input {
+  display: flex;
+  background-color: aqua;
+  max-width: 100%;
+}
+
+#btn {
+  border-radius: 30%;
+}
+
+#rt {
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#tit {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  box-shadow: 5px 5px 5px red;
+  background-color: crimson;
+}
+
+

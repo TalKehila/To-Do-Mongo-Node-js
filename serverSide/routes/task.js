@@ -1,44 +1,14 @@
-// //task.js file  (not model) ./routes/task.js (server side)
-
-// const express = require('express');
-// const common = require('../services/token');
-// const router = express.Router();
-// const Task = require('../model/Task')
-
-// router.get('/', common.verifyToken, async (req,res) => {
-//     let tasks = await Task.find();
-//     res.send(tasks);
-//     res.end();
-// })
-
-
-// router.post('/',common.verifyToken, async (req,res) =>{
-//    const tasks = new Task({
-//     title: req.body.name,
-//     description: req.body.description,
-//     priority: req.body.priority
-//    });
-
-//    try {
-//     await tasks.save();
-//     res.send(tasks);
-//     res.end();
-//    }
-//    catch(error){
-//     res.status(404);
-//     res.send(error);
-//     res.end();
-//    }
-// })
-
-// module.exports=router;
-
 
 // task.js file (server-side)
+
 const express = require('express');
 const common = require('../services/token');
 const router = express.Router();
 const Task = require('../model/Task');
+const socket = require('socket.io')();
+
+//socket = io("http://localhost:4200");
+
 
 // Middleware to verify user token
 router.use(common.verifyToken);
@@ -72,9 +42,10 @@ router.delete('/:id',async (req,res) =>{
         const deletetask = await Task.findOneAndDelete(taskId);
         if(!deletetask){
             res.status(404).send("Task not found");
+            return;
         }
         res.send(deletetask);
-
+       
     }catch(error) {
         res.status(500).send(error.message);
     }

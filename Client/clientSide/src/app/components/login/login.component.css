@@ -1,0 +1,18 @@
+body {
+    background-color: aquamarine;
+}
+.con {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 100px;
+}
+#title {
+   color:burlywood;
+}
+
+#btn {
+border-radius: 30%;
+
+}

@@ -1,6 +1,9 @@
 <!-- signup components html file  -->
-<h1>Create new User</h1>
+<body>
+<div class="con">
+   <h1 id="tit">Create new User</h1>
 <div>
+   
  <div>
     Username: <input type="text" [(ngModel)]="user.username" />
 </div>
@@ -12,9 +15,12 @@
 </div>
 <div>
     fullname: <input type="text" [(ngModel)]="user.fullname" />
+</div> 
+    
+    <button id="btn" (click)="registerUser()">Submit</button><br>
 </div>
 
-    <button (click)="registerUser()">Submit</button><br>
+<a id="rt" routerLink="/">Login</a>
+ 
 </div>
-
-<a routerLink="/">Login</a>
+</body>

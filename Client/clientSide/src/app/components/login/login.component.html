@@ -1,5 +1,7 @@
 <!-- login component HTML file -->
-<h1>Login</h1>
+
+<div class="con">
+   <h1 id="title">Login</h1>
 
 <div>
     Username: <input type="text" [(ngModel)]="username" />
@@ -8,6 +10,7 @@
     Password: <input type="password" [(ngModel)]="password" />
 </div>
 
-<button (click)="loginUser()">Submit</button> <br>
+<button id="btn" (click)="loginUser()">Submit</button> <br>
 
-<a routerLink="/signup">Signup</a>
+<a routerLink="/signup">Signup</a> 
+</div>

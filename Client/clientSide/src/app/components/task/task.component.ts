@@ -40,12 +40,21 @@ export class TaskComponent implements OnInit {
   }
 
   addTask(): void {
+    console.log('Adding Task', this.task);
+
+    if (!this.task.title || !this.task.description || !this.task.priority) {
+      alert('please fill in all fields');
+      return;
+    }
+    if (this.task.priority < 1 || this.task.priority > 5) {
+      alert('priority must be 1 - 5 ');
+      return;
+    }
     const token = this.userService.getToken();
     if (token) {
       this.taskService.addTask(this.task, token).subscribe(() => {
-        this.task = new Task(); // Clear the task object after adding
-        this.loadTasks(); // Reload tasks to reflect changes
-        alert("add new task")
+        this.task = new Task();
+        this.loadTasks();
       });
     }
   }

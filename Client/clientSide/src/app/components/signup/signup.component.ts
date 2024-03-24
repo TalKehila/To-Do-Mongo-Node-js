@@ -14,15 +14,22 @@ export class SignupComponent {
   constructor(private httpservice: HttpClient) {}
 
   registerUser() {
-    this.httpservice
-      .post('http://localhost:8080/api/user/signup', this.user)
-      .subscribe(
-        (data) => {
-          console.log(data);       
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    if (
+      !this.user.username ||!this.user.password ||!this.user.email ||!this.user.fullname ){
+        alert("Please fill all the fields");
+        return;
+      }
+    
+      this.httpservice
+        .post('http://localhost:8080/api/user/signup', this.user)
+        .subscribe(
+          (data) => {
+            console.log(data);
+            alert("user registerd succssfully")
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
   }
 }

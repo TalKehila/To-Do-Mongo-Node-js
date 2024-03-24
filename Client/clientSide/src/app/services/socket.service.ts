@@ -7,7 +7,6 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class SocketService {
   private socket: any;
-
   constructor() {
     this.socket = io('http://localhost:8080');
   }

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TaskComponent } from './components/task/task.component';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http'; // Import HttpClientModule and provideHttpClient
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http'; // Import HttpClientModule and provideHttpClient
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent, TaskComponent],
@@ -14,10 +14,10 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http'; // I
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule, // Add HttpClientModule here
+    HttpClientModule, 
   ],
   providers: [
-    provideHttpClient(), // Add provideHttpClient() with withFetch() here
+    provideHttpClient(withFetch()), 
   ],
   bootstrap: [AppComponent],
 })

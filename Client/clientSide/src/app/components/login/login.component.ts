@@ -40,10 +40,26 @@ export class LoginComponent {
   constructor(private userService: UserServiceService, private router: Router) {}
 
   loginUser() {
-    this.userService.login(this.username, this.password).subscribe((res: any) => {
+    if(!this.username || !this.password){
+      alert("All field are require")
+    }
+    this.userService.login(this.username, this.password)
+    .subscribe((res: any) => {
       const token = res.token;
       this.userService.storeToken(token);
+      console.log(`user log in succssfuly: ${this.username}`)
+      
       this.router.navigate(['/task']);
-    });
+      
+    },
+    (error)=>{
+      console.log("Login Error" , error);
+      if(error.status === 401){
+        alert("Invalid username or password please try again")
+      }else{
+        alert('An error occurred during login. Please try again later.');
+      }
+      }
+    );
   }
 }
